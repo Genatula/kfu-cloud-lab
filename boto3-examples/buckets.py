@@ -6,6 +6,7 @@ def create_bucket(bucket_name):
     """
     Create a bucket with a specified name
     :param bucket_name:
+    :return: False if ClientError is encountered, otherwise True
     """
     session = boto3.session.Session()
     try:
@@ -21,6 +22,10 @@ def create_bucket(bucket_name):
 
 
 def list_buckets():
+    """
+    List existing buckets in the cloud
+    :return: False if ClientError is encountered, otherwise True
+    """
     session = boto3.session.Session()
     try:
         s3 = session.client(
